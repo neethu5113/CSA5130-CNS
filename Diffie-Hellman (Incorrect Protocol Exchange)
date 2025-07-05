@@ -1,0 +1,14 @@
+// Input: Instead of computing a^x mod q, participants send x^a
+// Output: Explains the problem and attack potential
+
+```c
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    printf("If Alice and Bob send x^a instead of a^x mod q in DH:\n");
+    printf("- The protocol breaks as values are no longer in modulo space.\n");
+    printf("- Eve can take logarithms and possibly solve the system.\n");
+    printf("- Correct method: A = a^x mod q, B = a^y mod q, Key = B^x = A^y mod q\n");
+    return 0;
+}
