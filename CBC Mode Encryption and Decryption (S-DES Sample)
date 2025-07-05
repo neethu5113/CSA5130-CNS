@@ -1,0 +1,14 @@
+// Input: Plaintext = 0000000100100011, Key = 0111111101, IV = 10101010
+// Output: Ciphertext = 1111010000001011
+
+#include <stdio.h>
+
+int main() {
+    printf("CBC Encryption with S-DES (Example):\n");
+    printf("Plaintext: 0000000100100011\n");
+    printf("Key: 0111111101\n");
+    printf("IV: 10101010\n");
+    printf("Expected Ciphertext: 1111010000001011\n");
+    printf("Note: Implement S-DES functions separately.\n");
+    return 0;
+}
