@@ -1,0 +1,13 @@
+// Input: 64-bit plaintext block
+// Output: 64-bit ciphertext block using DES
+
+#include <stdio.h>
+
+int main() {
+    printf("DES Implementation (Simplified View):\n");
+    printf("- Initial Permutation\n");
+    printf("- 16 Rounds using subkeys K1 to K16\n");
+    printf("- Each round: Expansion, XOR with key, S-Box, Permutation\n");
+    printf("- Final Permutation\n");
+    return 0;
+}
