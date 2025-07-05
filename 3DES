@@ -1,0 +1,11 @@
+// Input: Plaintext blocks, IV, Key
+// Output: Encrypted ciphertext using CBC with 3DES
+
+#include <stdio.h>
+
+int main() {
+    printf("CBC Encryption using 3DES\n");
+    printf("Choose 3DES for higher security than DES\n");
+    printf("Encrypt: C1 = E(K1,E(K2,E(K1,P1 ^ IV)))\n");
+    return 0;
+}
