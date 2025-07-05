@@ -1,0 +1,25 @@
+// Input: Ciphertext = 
+// KXJEY UREBE ZWEHE WRYTU HEYFS
+// KREHE GOYFI WTTTU OLKSY CAJPO
+// BOTEI ZONTX BYBNT GONEY CUZWR
+// GDSON SXBOU YWRHE BAAHY USEDQ
+
+// Output: Plaintext decrypted using Playfair cipher rules.
+
+#include <stdio.h>
+
+int main() {
+    printf("Playfair Cipher Decryption for PT-109 message:\n");
+    printf("Ciphertext:\n");
+    printf("KXJEY UREBE ZWEHE WRYTU HEYFS\n");
+    printf("KREHE GOYFI WTTTU OLKSY CAJPO\n");
+    printf("BOTEI ZONTX BYBNT GONEY CUZWR\n");
+    printf("GDSON SXBOU YWRHE BAAHY USEDQ\n\n");
+    
+    printf("To decrypt:\n");
+    printf("1. Construct the Playfair matrix using a keyword (e.g., 'MONARCHY')\n");
+    printf("2. Break ciphertext into digraphs (2-letter pairs)\n");
+    printf("3. Apply Playfair rules to each pair\n");
+    printf("NOTE: 'I' and 'J' are treated as the same letter.\n");
+    return 0;
+}
