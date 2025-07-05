@@ -1,0 +1,16 @@
+// Input: Error in ciphertext block C1 or plaintext block P1
+// Output: Analysis of effect on other blocks
+
+#include <stdio.h>
+
+int main() {
+    printf("ECB Mode:\n");
+    printf("- Error in ciphertext block only affects that block\n");
+
+    printf("\nCBC Mode:\n");
+    printf("- Error in C1 affects P1 and P2\n");
+    printf("- Error in plaintext block P1 propagates to C1 only\n");
+
+    printf("\nBeyond P2 not affected unless chaining continues\n");
+    return 0;
+}
