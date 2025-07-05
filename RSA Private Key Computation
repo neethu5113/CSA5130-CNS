@@ -1,0 +1,29 @@
+// Input: e = 31, n = 3599
+// Output: d = 791, p = 59, q = 61
+
+#include <stdio.h>
+
+// Extended Euclidean Algorithm
+int modInverse(int e, int phi) {
+    int t = 0, newt = 1, r = phi, newr = e;
+    while (newr != 0) {
+        int quotient = r / newr;
+        int temp = newt;
+        newt = t - quotient * newt;
+        t = temp;
+        temp = newr;
+        newr = r - quotient * newr;
+        r = temp;
+    }
+    return t < 0 ? t + phi : t;
+}
+
+int main() {
+    int e = 31, n = 3599;
+    int p = 59, q = 61;
+    int phi = (p - 1) * (q - 1); // phi = 3480
+    int d = modInverse(e, phi);
+    printf("Public Key: (e=%d, n=%d)\n", e, n);
+    printf("Private Key: d = %d\n", d);
+    return 0;
+}
