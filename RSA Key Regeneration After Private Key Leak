@@ -1,0 +1,12 @@
+// Input: Old modulus n is reused after private key leak
+// Output: Warning against unsafe practice
+
+#include <stdio.h>
+
+int main() {
+    printf("RSA Private Key Leaked\n");
+    printf("Reusing modulus n with new e/d is NOT SAFE!\n");
+    printf("Reason: If n is known and one d is known, then φ(n) can be computed.\n");
+    printf("Therefore, any new key pairs based on the same n can also be broken.\n");
+    return 0;
+}
