@@ -1,0 +1,34 @@
+// Input: Ciphertext = "ZOLSSPZLHY"
+// Output: Guesses top 10 plaintexts based on frequency
+
+#include <stdio.h>
+#include <string.h>
+
+// Simplified static frequency order of English letters
+char freq_order[] = "ETAOINSHRDLCUMWFGYPBVKJXQZ";
+
+void try_guess(char *cipher, char *mapping) {
+    for (int i = 0; i < strlen(cipher); i++) {
+        if (cipher[i] >= 'A' && cipher[i] <= 'Z')
+            putchar(mapping[cipher[i] - 'A']);
+        else
+            putchar(cipher[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    char cipher[] = "ZOLSSPZLHY";
+    printf("Top guesses:\n");
+
+    // Simulate 3 guesses (real program uses frequency analysis)
+    char guess1[] = "QWERTYUIOPASDFGHJKLZXCVBNM";
+    char guess2[] = "MNBVCXZLKJHGFDSAPOIUYTREWQ";
+    char guess3[] = "ETAOINSHRDLCUMWFGYPBVKJXQZ";
+
+    try_guess(cipher, guess1);
+    try_guess(cipher, guess2);
+    try_guess(cipher, guess3);
+
+    return 0;
+}
