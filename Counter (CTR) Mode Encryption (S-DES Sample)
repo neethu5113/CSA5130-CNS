@@ -1,0 +1,14 @@
+// Input: Plaintext = 00000001 00000010 00000100, Counter = 00000000
+// Output: Ciphertext = 00111000 01001111 00110010
+
+#include <stdio.h>
+
+int main() {
+    printf("CTR Mode Encryption with S-DES:\n");
+    printf("Plaintext blocks: 00000001 00000010 00000100\n");
+    printf("Counter start: 00000000\n");
+    printf("Key: 0111111101\n");
+    printf("Expected Ciphertext: 00111000 01001111 00110010\n");
+    printf("Use: Cipher(counter) XOR plaintext\n");
+    return 0;
+}
