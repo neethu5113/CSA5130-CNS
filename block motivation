@@ -1,0 +1,12 @@
+// Input: Message with size multiple of block
+// Output: Justifies padding block even when not strictly needed
+
+#include <stdio.h>
+
+int main() {
+    printf("Why pad even when message ends on block boundary?\n");
+    printf("- Prevents ambiguity: can't tell if padding was added or not.\n");
+    printf("- Always padding ensures consistent decrypt and MACs.\n");
+    printf("- Common padding: 1 followed by 0s or PKCS#7\n");
+    return 0;
+}
