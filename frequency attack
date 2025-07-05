@@ -1,0 +1,25 @@
+// Input: Ciphertext = "KHOORZRUOG" (Encrypted with shift 3)
+// Output: Top 10 probable plaintexts by trying shifts
+
+#include <stdio.h>
+#include <string.h>
+
+void decrypt(char *ct, int shift, char *pt) {
+    int i;
+    for (i = 0; ct[i] != '\0'; i++) {
+        pt[i] = ((ct[i] - 'A' - shift + 26) % 26) + 'A';
+    }
+    pt[i] = '\0';
+}
+
+int main() {
+    char ct[] = "KHOORZRUOG";  // HELLOWORLD encrypted with Caesar shift 3
+    char guess[100];
+
+    printf("Top 10 Caesar Cipher Guesses:\n");
+    for (int k = 1; k <= 10; k++) {
+        decrypt(ct, k, guess);
+        printf("Shift %2d: %s\n", k, guess);
+    }
+    return 0;
+}
