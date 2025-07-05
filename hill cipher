@@ -1,0 +1,31 @@
+// Input: Plaintext = "MEETME", Key matrix = [9 4; 5 7]
+// Output: Ciphertext
+
+#include <stdio.h>
+#include <string.h>
+
+int mod26(int x) {
+    x = x % 26;
+    return (x < 0) ? x + 26 : x;
+}
+
+void multiply(int key[2][2], int in[2], int out[2]) {
+    out[0] = mod26(key[0][0]*in[0] + key[0][1]*in[1]);
+    out[1] = mod26(key[1][0]*in[0] + key[1][1]*in[1]);
+}
+
+int main() {
+    char msg[] = "MEETME";
+    int key[2][2] = {{9, 4}, {5, 7}};
+    int i, in[2], out[2];
+
+    printf("Plaintext: %s\nCiphertext: ", msg);
+    for (i = 0; i < strlen(msg); i += 2) {
+        in[0] = msg[i] - 'A';
+        in[1] = msg[i+1] - 'A';
+        multiply(key, in, out);
+        printf("%c%c", out[0] + 'A', out[1] + 'A');
+    }
+    printf("\n");
+    return 0;
+}
