@@ -1,0 +1,13 @@
+// Input: Any plaintext
+// Output: Explanation why padding is always added
+
+#include <stdio.h>
+
+int main() {
+    printf("Padding Motivation:\n");
+    printf("- Prevents ambiguity in deciphering message boundaries.\n");
+    printf("- Helps mitigate padding oracle attacks.\n");
+    printf("- Makes message indistinguishable (even if length is exact block).\n");
+    printf("- Recommended even when plaintext size is multiple of block size.\n");
+    return 0;
+}
