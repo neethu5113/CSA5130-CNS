@@ -1,0 +1,44 @@
+// Input: Plaintext = "HELLO", a = 5, b = 8
+// Output: Ciphertext = "RCLLA"
+
+#include <stdio.h>
+
+int modInverse(int a, int m) {
+    for (int i = 1; i < m; i++)
+        if ((a * i) % m == 1)
+            return i;
+    return -1;
+}
+
+int isCoprime(int a, int m) {
+    for (int i = 2; i <= a && i <= m; i++)
+        if (a % i == 0 && m % i == 0)
+            return 0;
+    return 1;
+}
+
+void encrypt(char *text, int a, int b) {
+    char ch;
+    printf("Ciphertext: ");
+    for (int i = 0; text[i] != '\0'; i++) {
+        ch = text[i];
+        if (ch >= 'A' && ch <= 'Z') {
+            int p = ch - 'A';
+            int c = (a * p + b) % 26;
+            printf("%c", c + 'A');
+        }
+    }
+    printf("\n");
+}
+
+int main() {
+    char text[] = "HELLO";
+    int a = 5, b = 8;
+    if (!isCoprime(a, 26)) {
+        printf("Invalid 'a'. Must be coprime with 26.\n");
+        return 1;
+    }
+    printf("Plaintext: %s\n", text);
+    encrypt(text, a, b);
+    return 0;
+}
