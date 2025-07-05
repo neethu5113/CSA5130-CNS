@@ -1,0 +1,13 @@
+// Input: Key = 64-bit key
+// Output: 16 subkeys in reverse for decryption
+
+#include <stdio.h>
+
+int main() {
+    printf("DES Key Generation for Decryption:\n");
+    printf("Apply PC-1, then for each round:\n");
+    printf("1. Left shift based on schedule\n");
+    printf("2. Apply PC-2\n");
+    printf("3. Reverse order of subkeys for decryption\n");
+    return 0;
+}
