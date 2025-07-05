@@ -1,0 +1,12 @@
+// Input: Alice encrypts each character (A=0 to Z=25) with RSA separately
+// Output: Explanation why this is insecure
+
+```c
+#include <stdio.h>
+
+int main() {
+    printf("RSA encryption of each character separately is NOT SECURE.\n");
+    printf("Reason: Only 26 possible inputs → very small space → brute force possible.\n");
+    printf("Efficient Attack: Build lookup table of all 26 encrypted values.\n");
+    return 0;
+}
