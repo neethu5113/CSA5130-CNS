@@ -1,0 +1,13 @@
+// Input: Initial SHA-3 matrix state with non-zero P0 lanes
+// Output: Explains how zero lanes in capacity are eventually filled
+
+```c
+#include <stdio.h>
+
+int main() {
+    printf("SHA-3 (1024-bit block) capacity lanes start as 0.\n");
+    printf("Due to mixing (theta, rho, pi), they fill with bits over rounds.\n");
+    printf("Simulation (ignoring permutations): filling likely by round 2 or 3.\n");
+    printf("Exact number depends on mixing behavior and original P0 bits.\n");
+    return 0;
+}
