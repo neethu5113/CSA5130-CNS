@@ -1,0 +1,12 @@
+// Input: 56-bit initial key
+// Output: Structure of subkeys showing 24 bits from each 28-bit half
+
+#include <stdio.h>
+
+int main() {
+    printf("DES Subkey Generation:\n");
+    printf("- Key split: 28-bit C and D halves\n");
+    printf("- First 24 bits from C, next 24 from D\n");
+    printf("- Shifted per round and permuted\n");
+    return 0;
+}
