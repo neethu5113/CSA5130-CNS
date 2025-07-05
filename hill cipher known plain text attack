@@ -1,0 +1,13 @@
+// Input: Known plaintext-ciphertext pairs
+// Output: Explanation of how to recover key
+
+#include <stdio.h>
+
+int main() {
+    printf("Known plaintext attack on Hill cipher:\n");
+    printf("1. Get plaintext-ciphertext vector pairs\n");
+    printf("2. Construct matrices P and C\n");
+    printf("3. Compute inverse of P (mod 26)\n");
+    printf("4. K = C * P⁻¹ mod 26\n");
+    return 0;
+}
