@@ -1,0 +1,10 @@
+// Input: None
+// Output: Approximate number of possible keys for Playfair cipher
+
+#include <stdio.h>
+
+int main() {
+    printf("Possible Playfair keys (ignoring symmetry): 25! ≈ 2^88\n");
+    printf("Considering symmetrical equivalences (reversed rows/columns etc.): ≈ 2^64 unique keys\n");
+    return 0;
+}
