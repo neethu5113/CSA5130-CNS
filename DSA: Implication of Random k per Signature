@@ -1,0 +1,13 @@
+// Input: Same message signed twice with same k
+// Output: Demonstrates private key leak risk
+
+#include <stdio.h>
+
+int main() {
+    printf("DSA uses a new random 'k' for each signature.\n");
+    printf("If same 'k' is reused:\n");
+    printf("- Attacker can recover the private key.\n");
+    printf("- r will be the same, then using two signatures (s1, s2) allows solving for k.\n");
+    printf("- Once k is known, private key x can be computed.\n");
+    return 0;
+}
