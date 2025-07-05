@@ -1,0 +1,18 @@
+// Input: Plaintext = "SENDMOREMONEY", Key = [9,0,1,7,23,15,21,14,11,11,2,8,9]
+// Output: Ciphertext
+
+#include <stdio.h>
+
+int main() {
+    char pt[] = "SENDMOREMONEY";
+    int key[] = {9,0,1,7,23,15,21,14,11,11,2,8,9};
+    int i;
+
+    printf("Plaintext: %s\nCiphertext: ", pt);
+    for (i = 0; i < 13; i++) {
+        char c = ((pt[i] - 'A' + key[i]) % 26) + 'A';
+        printf("%c", c);
+    }
+    printf("\n");
+    return 0;
+}
