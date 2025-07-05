@@ -1,0 +1,15 @@
+#include <stdio.h>
+char encrypt(char p, int a, int b) {
+    return ((a * (p - 'A') + b) % 26) + 'A';
+}
+int gcd(int a, int b) {
+    return b ? gcd(b, a % b) : a;
+}
+int main() {
+    char pt[] = "HELLO"; int a = 5, b = 8;
+    if (gcd(a,26)!=1) { printf("Invalid 'a'\n"); return 1; }
+    for (int i = 0; pt[i]; i++)
+        pt[i] = encrypt(pt[i], a, b);
+    printf("Affine Encrypted: %s\n", pt);
+    return 0;
+}
