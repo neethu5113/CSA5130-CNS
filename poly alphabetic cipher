@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <string.h>
+#define MAX 100
+void encrypt(char *pt, char *key) {
+    int len = strlen(key);
+    for (int i = 0; pt[i]; i++) {
+        if (pt[i] >= 'A' && pt[i] <= 'Z')
+            pt[i] = ((pt[i]-'A') + (key[i%len]-'A'))%26 + 'A';
+    }
+}
+int main() {
+    char pt[MAX], key[MAX];
+    printf("Enter plaintext: "); gets(pt);
+    printf("Enter key: "); gets(key);
+    encrypt(pt, key);
+    printf("Encrypted: %s\n", pt);
+    return 0;
+}
