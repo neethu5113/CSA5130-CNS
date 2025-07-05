@@ -1,0 +1,67 @@
+// Input: Plaintext = "Must see you over Cadogan West. Coming at once."
+// Output: Ciphertext using given Playfair matrix
+
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+// 5x5 Playfair Matrix
+char matrix[5][5] = {
+    {'M','F','H','I','K'},
+    {'U','N','O','P','Q'},
+    {'Z','V','W','X','Y'},
+    {'E','L','A','R','G'},
+    {'D','S','T','B','C'}
+};
+
+// Function to find row and column of a letter in matrix
+void find_position(char ch, int *row, int *col) {
+    if (ch == 'J') ch = 'I';
+    for (int i = 0; i < 5; i++)
+        for (int j = 0; j < 5; j++)
+            if (matrix[i][j] == ch) {
+                *row = i;
+                *col = j;
+                return;
+            }
+}
+
+// Encrypt a pair of characters
+void encrypt_pair(char a, char b) {
+    int r1, c1, r2, c2;
+    find_position(a, &r1, &c1);
+    find_position(b, &r2, &c2);
+    if (r1 == r2)
+        printf("%c%c", matrix[r1][(c1+1)%5], matrix[r2][(c2+1)%5]);
+    else if (c1 == c2)
+        printf("%c%c", matrix[(r1+1)%5][c1], matrix[(r2+1)%5][c2]);
+    else
+        printf("%c%c", matrix[r1][c2], matrix[r2][c1]);
+}
+
+int main() {
+    char message[] = "MUST SEE YOU OVER CADOGAN WEST COMING AT ONCE";
+    char prepared[100];
+    int k = 0;
+
+    // Prepare message: remove spaces, make uppercase, insert 'X' between repeated letters
+    for (int i = 0; i < strlen(message); i++) {
+        if (isalpha(message[i])) {
+            char ch = toupper(message[i]);
+            if (k > 0 && prepared[k-1] == ch)
+                prepared[k++] = 'X';
+            prepared[k++] = ch;
+        }
+    }
+    if (k % 2 != 0)
+        prepared[k++] = 'X'; // pad if odd length
+    prepared[k] = '\0';
+
+    printf("Plaintext (prepared): %s\n", prepared);
+    printf("Encrypted: ");
+    for (int i = 0; i < k; i += 2)
+        encrypt_pair(prepared[i], prepared[i+1]);
+    printf("\n");
+
+    return 0;
+}
