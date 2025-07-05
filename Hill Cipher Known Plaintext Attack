@@ -1,0 +1,13 @@
+// Input: Known plaintext-ciphertext pairs
+// Output: Explains how to find key matrix
+
+#include <stdio.h>
+
+int main() {
+    printf("Hill Cipher Known Plaintext Attack:\n");
+    printf("1. Create matrix P (plaintext pairs)\n");
+    printf("2. Create matrix C (ciphertext pairs)\n");
+    printf("3. Compute P⁻¹ mod 26\n");
+    printf("4. Multiply: K = C * P⁻¹ mod 26\n");
+    return 0;
+}
