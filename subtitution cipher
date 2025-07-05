@@ -1,0 +1,11 @@
+// Input: Ciphertext (long symbols)
+// Output: Explains how to find mappings for 'e', 't', 'h' etc.
+#include <stdio.h>
+
+int main() {
+    printf("Manual substitution attack on long ciphertext\n");
+    printf("Step 1: Find most frequent char → likely 'e'\n");
+    printf("Step 2: Look for 3-letter patterns → likely 'the'\n");
+    printf("Step 3: Map known letters and guess others\n");
+    return 0;
+}
