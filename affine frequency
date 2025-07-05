@@ -1,0 +1,21 @@
+// Input: Ciphertext with most frequent letters 'B' and 'U'
+// Output: Prints guessed values of 'a' and 'b' that could produce such mapping
+#include <stdio.h>
+
+int modInverse(int a, int m) {
+    for (int i = 1; i < m; i++) if ((a * i) % m == 1) return i;
+    return -1;
+}
+
+int main() {
+    int e1 = 'B' - 'A'; // 1
+    int e2 = 'U' - 'A'; // 20
+    int p1 = 'E' - 'A'; // 4
+    int p2 = 'T' - 'A'; // 19
+
+    int a = ((e1 - e2) * modInverse((p1 - p2 + 26) % 26, 26)) % 26;
+    int b = (e1 - a * p1 + 26 * 26) % 26;
+
+    printf("Guessed affine cipher key: a = %d, b = %d\n", a, b);
+    return 0;
+}
